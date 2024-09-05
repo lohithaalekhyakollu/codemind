@@ -1,0 +1,23 @@
+class Solution {
+public:
+    vector<int> missingRolls(vector<int>& rolls, int mean, int n) {
+        int sum = 0;
+        for (int i = 0; i < rolls.size(); i++) {
+            sum=sum + rolls[i];
+        }
+        int w=mean*(n+rolls.size())-sum;
+        int r=w%n;
+        int d=w/n;
+        vector<int>a  (n,d);
+        if(w>6*n || w<n)
+        {
+            return {};
+        }
+        for(int i=0;i<r;i++)
+        {
+            a[i]++;
+        }
+        return a;
+
+    }
+};
